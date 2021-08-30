@@ -4,6 +4,44 @@ import styled from 'styled-components';
 import Orderbook from '../components/Orderbook';
 import UserInfoTable from '../components/UserInfoTable';
 import StandaloneBalancesDisplay from '../components/StandaloneBalancesDisplay';
+import Aave from '../assets/logos/Aave.svg';
+import Akro from '../assets/logos/Akro.svg';
+import Aleph from '../assets/logos/Aleph.png';
+import Btc from '../assets/logos/Btc.svg';
+import Cel from '../assets/logos/Cel.svg';
+import Cope from '../assets/logos/Cope.png';
+import Cream from '../assets/logos/Cream.svg';
+import Eth from '../assets/logos/Eth.svg';
+import Fida from '../assets/logos/Fida.svg';
+import Front from '../assets/logos/Front.png';
+import Ftt from '../assets/logos/Ftt.svg';
+import Hget from '../assets/logos/Hget.png';
+import Hnt from '../assets/logos/Hnt.png';
+import Hxro from '../assets/logos/Hxro.png';
+import Keep from '../assets/logos/Keep.svg';
+import Kin from '../assets/logos/Kin.svg';
+import Link from '../assets/logos/Link.svg';
+import Lua from '../assets/logos/Lua.webp';
+import Maps from '../assets/logos/Maps.webp';
+import Math from '../assets/logos/Math.webp';
+import Mer from '../assets/logos/Mer.png';
+import Msrm from '../assets/logos/Msrm.svg';
+import Oxy from '../assets/logos/Oxy.png';
+import Ray from '../assets/logos/Ray.svg';
+import Rsr from '../assets/logos/Rsr.svg';
+import Sbr from '../assets/logos/Sbr.webp';
+import Slrs from '../assets/logos/Slrs.svg';
+import Sny from '../assets/logos/Sny.png';
+import Sol from '../assets/logos/Sol.svg';
+import Srm from '../assets/logos/Srm.svg';
+import Sushi from '../assets/logos/Sushi.svg';
+import Sxp from '../assets/logos/Sxp.svg';
+import Tomo from '../assets/logos/Tomo.svg';
+import Ubxt from '../assets/logos/Ubxt.png';
+import Uni from '../assets/logos/Uni.svg';
+import Usdt from '../assets/logos/Usdt.svg';
+import Yfi from '../assets/logos/Yfi.svg';
+
 import {
   getMarketInfos,
   getTradePageUrl,
@@ -83,6 +121,7 @@ function TradePageInner() {
     width: window.innerWidth,
   });
 
+  
   useEffect(() => {
     document.title = marketName ? `${marketName} — Serum` : 'Serum';
   }, [marketName]);
@@ -223,6 +262,78 @@ function MarketSelector({
 }) {
   const { market, setMarketAddress } = useMarket();
 
+  const Logos = {
+    'AAVE/USDT' : Aave,
+    'AKRO/USDT' : Akro,
+    'AKRO/USDC' : Akro,
+    'ALEPH/USDT' : Aleph,
+    'ALEPH/USDC' : Aleph,
+    'BTC/USDT' : Btc,
+    'BTC/USDC' : Btc,
+    'CEL/USDT' : Cel,
+    'COPE/USDC' : Cope,
+    'CREAM/USDT' : Cream,
+    'CREAM/USDC' : Cream,
+    'ETH/USDT' : Eth,
+    'ETH/USDC' : Eth,
+    'ETHV/USDT' : Eth,
+    'FIDA/USDT' : Fida,
+    'FIDA/USDC' : Fida,
+    'FRONT/USDT' : Front,
+    'FRONT/USDC' : Front,
+    'FTT/USDT' : Ftt,
+    'FTT/USDC' : Ftt,
+    'HGET/USDT' : Hget,
+    'HGET/USDC' : Hget,
+    'HNT/USDT' : Hnt,
+    'HNT/USDC' : Hnt,
+    'HXRO/USDT' : Hxro,
+    'HXRO/USDC' : Hxro,
+    'KEEP/USDT' : Keep,
+    'KEEP/USDC' : Keep,
+    'KIN/USDT' : Kin,
+    'KIN/USDC' : Kin,
+    'LINK/USDT' : Link,
+    'LINK/USDC' : Link,
+    'LUA/USDT' : Lua,
+    'LUA/USDC' : Lua,
+    'MAPS/USDT' : Maps,
+    'MAPS/USDC' : Maps,
+    'MATH/USDT' : Math,
+    'MATH/USDC' : Math,
+    'MER/USDT' : Mer,
+    'MER/USDC' : Mer,
+    'MSRM/USDT' : Msrm,
+    'MSRM/USDC' : Msrm,
+    'OXY/USDT' : Oxy,
+    'OXY/WUSDT' : Oxy,
+    'OXY/USDC' : Oxy,
+    'RAY/USDT' : Ray,
+    'RSR/USDT' : Rsr,
+    'SBR/USDC' : Sbr,
+    'SLRS/USDC' : Slrs,
+    'SNY/USDC' : Sny,
+    'SOL/USDT' : Sol,
+    'SOL/USDC' : Sol,
+    'SRM/USDT' : Srm,
+    'SRM/USDC' : Srm,
+    'SRM/SOL' : Srm,
+    'SUSHI/USDT' : Sushi,
+    'SUSHI/USDC' : Sushi,
+    'SXP/USDT' : Sxp,
+    'SXP/USDC' : Sxp,
+    'TOMO/USDT' : Tomo,
+    'TOMO/USDC' : Tomo,
+    'UBXT/USDT' : Ubxt,
+    'UBXT/USDC' : Ubxt,
+    'UNI/USDT' : Uni,
+    'UNI/USDC' : Uni,
+    'USDT/USDC' : Usdt,
+    'YFI/USDT' : Yfi,
+    'YFI/USDC' : Yfi,
+  }
+
+
   const onSetMarketAddress = (marketAddress) => {
     setHandleDeprecated(false);
     setMarketAddress(marketAddress);
@@ -311,7 +422,7 @@ function MarketSelector({
                 backgroundColor: i % 2 === 0 ? 'rgb(39, 44, 61)' : null,
               }}
             >
-              {name} {deprecated ? ' (Deprecated)' : null}
+              <img src={Logos[name]} width="20px"/> {name} {deprecated ? ' (Deprecated)' : null}
             </Option>
           ))}
       </OptGroup>
