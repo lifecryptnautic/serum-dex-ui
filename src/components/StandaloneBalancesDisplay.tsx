@@ -24,6 +24,45 @@ import { useInterval } from '../utils/useInterval';
 import { useLocalStorageState } from '../utils/utils';
 import { AUTO_SETTLE_DISABLED_OVERRIDE } from '../utils/preferences';
 import { useReferrer } from '../utils/referrer';
+import Aave from '../assets/logos/Aave.svg';
+import Akro from '../assets/logos/Akro.svg';
+import Aleph from '../assets/logos/Aleph.png';
+import Btc from '../assets/logos/Btc.svg';
+import Cel from '../assets/logos/Cel.svg';
+import Cope from '../assets/logos/Cope.png';
+import Cream from '../assets/logos/Cream.svg';
+import Eth from '../assets/logos/Eth.svg';
+import Fida from '../assets/logos/Fida.svg';
+import Front from '../assets/logos/Front.png';
+import Ftt from '../assets/logos/Ftt.svg';
+import Hget from '../assets/logos/Hget.png';
+import Hnt from '../assets/logos/Hnt.png';
+import Hxro from '../assets/logos/Hxro.png';
+import Keep from '../assets/logos/Keep.svg';
+import Kin from '../assets/logos/Kin.svg';
+import Linkc from '../assets/logos/Link.svg';
+import Lua from '../assets/logos/Lua.webp';
+import Maps from '../assets/logos/Maps.webp';
+import Math from '../assets/logos/Math.webp';
+import Mer from '../assets/logos/Mer.png';
+import Msrm from '../assets/logos/Msrm.svg';
+import Oxy from '../assets/logos/Oxy.png';
+import Ray from '../assets/logos/Ray.svg';
+import Rsr from '../assets/logos/Rsr.svg';
+import Sbr from '../assets/logos/Sbr.webp';
+import Slrs from '../assets/logos/Slrs.svg';
+import Sny from '../assets/logos/Sny.png';
+import Sol from '../assets/logos/Sol.svg';
+import Srm from '../assets/logos/Srm.svg';
+import Sushi from '../assets/logos/Sushi.svg';
+import Sxp from '../assets/logos/Sxp.svg';
+import Tomo from '../assets/logos/Tomo.svg';
+import Ubxt from '../assets/logos/Ubxt.png';
+import Uni from '../assets/logos/Uni.svg';
+import Usdc from '../assets/logos/Usdc.png';
+import Usdt from '../assets/logos/Usdt.svg';
+import Yfi from '../assets/logos/Yfi.svg';
+
 
 const RowBox = styled(Row)`
   padding-bottom: 20px;
@@ -184,13 +223,56 @@ export default function StandaloneBalancesDisplay() {
     ],
   ];
 
+  const Logos = {
+    'AAVE' : Aave,
+    'AKRO' : Akro,
+    'ALEPH' : Aleph,
+    'BTC' : Btc,
+    'CEL' : Cel,
+    'COPE' : Cope,
+    'CREAM' : Cream,
+    'ETH' : Eth,
+    'ETHV' : Eth,
+    'FIDA' : Fida,
+    'FRONT' : Front,
+    'FTT' : Ftt,
+    'HGET' : Hget,
+    'HNT' : Hnt,
+    'HXRO' : Hxro,
+    'KEEP' : Keep,
+    'KIN' : Kin,
+    'LINK' : Linkc,
+    'LUA' : Lua,
+    'MAPS' : Maps,
+    'MATH' : Math,
+    'MER' : Mer,
+    'MSRM' : Msrm,
+    'OXY' : Oxy,
+    'OXY/WUSDT' : Oxy,
+    'RAY' : Ray,
+    'RSR' : Rsr,
+    'SBR' : Sbr,
+    'SLRS' : Slrs,
+    'SNY' : Sny,
+    'SOL' : Sol,
+    'SRM' : Srm,
+    'SUSHI' : Sushi,
+    'SXP' : Sxp,
+    'TOMO' : Tomo,
+    'UBXT' : Ubxt,
+    'UNI' : Uni,
+    'USDC' : Usdc,
+    'USDT' : Usdt,
+    'YFI' : Yfi,
+  }
+
   return (
     <FloatingElement style={{ flex: 1, paddingTop: 10 }}>
       {formattedBalances.map(
         ([currency, balances, baseOrQuote, mint], index) => (
           <React.Fragment key={index}>
             <Divider style={{ borderColor: 'white' }}>
-              {currency}{' '}
+              {currency}{' '} <img src={Logos[currency?.toString() || ""]} width="20px"/>
               {mint && (
                 <Popover
                   content={<LinkAddress address={mint} />}
