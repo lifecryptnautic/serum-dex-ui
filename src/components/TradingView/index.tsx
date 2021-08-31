@@ -4,6 +4,7 @@ import {
   widget,
   ChartingLibraryWidgetOptions,
   IChartingLibraryWidget,
+  ChartStyle,
 } from '../../charting_library';
 import { useMarket, USE_MARKETS } from '../../utils/markets';
 import * as saveLoadAdapter from './saveLoadAdapter';
@@ -28,6 +29,7 @@ export interface ChartContainerProps {
   studiesOverrides: ChartingLibraryWidgetOptions['studies_overrides'];
   containerId: ChartingLibraryWidgetOptions['container_id'];
   theme: string;
+  chartType: ChartStyle
 }
 
 export interface ChartContainerState {}
@@ -100,6 +102,7 @@ export const TVChartContainer = () => {
         'mainSeriesProperties.candleStyle.borderDownColor': '#F23B69',
         'mainSeriesProperties.candleStyle.wickUpColor': '#41C77A',
         'mainSeriesProperties.candleStyle.wickDownColor': '#F23B69',
+        'mainSeriesProperties.style': 2,
       },
       // @ts-ignore
       save_load_adapter: saveLoadAdapter,
