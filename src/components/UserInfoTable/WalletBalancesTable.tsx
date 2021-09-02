@@ -32,6 +32,8 @@ export default function WalletBalancesTable({
   const [allMarkets, allMarketsConnected] = useAllMarkets();
   const [settlingFunds, setSettlingFunds] = useState(false);
 
+  const language = (localStorage.getItem('language')? localStorage.getItem('language'): 'es');
+
   async function onSettleFunds() {
     setSettlingFunds(true);
     try {
@@ -46,16 +48,16 @@ export default function WalletBalancesTable({
 
       if (!tokenAccounts || !tokenAccountsConnected) {
         notify({
-          message: 'Error settling funds',
-          description: 'TokenAccounts not connected',
+          message: language === 'en' ? 'Error settling funds' : 'Error liquidando los fondos',
+          description: language === 'en' ? 'TokenAccounts not connected' : 'No está conectada la cuenta',
           type: 'error',
         });
         return;
       }
       if (!allMarkets || !allMarketsConnected) {
         notify({
-          message: 'Error settling funds',
-          description: 'Markets not connected',
+          message: language === 'en' ? 'Error settling funds' : 'Error liquidando los fondos',
+          description: language === 'en' ? 'Markets not connected' : 'Mercados no conectados',
           type: 'error',
         });
         return;
@@ -69,7 +71,7 @@ export default function WalletBalancesTable({
       });
     } catch (e) {
       notify({
-        message: 'Error settling funds',
+        message: language === 'en' ? 'Error settling funds' : 'Error liquidando los fondos',
         description: e.message,
         type: 'error',
       });
@@ -80,7 +82,7 @@ export default function WalletBalancesTable({
 
   const columns = [
     {
-      title: 'Coin',
+      title: language === 'en' ? 'Coin' : 'Moneda',
       key: 'coin',
       width: '20%',
       render: (walletBalance) => (
@@ -97,25 +99,25 @@ export default function WalletBalancesTable({
       ),
     },
     {
-      title: 'Wallet Balance',
+      title: language === 'en' ? 'Wallet Balance' : 'Saldo de la billetera',
       dataIndex: 'walletBalance',
       key: 'walletBalance',
       width: '20%',
     },
     {
-      title: 'Open orders total balances',
+      title: language === 'en' ? 'Open orders total balances' : 'Saldo total de las órdenes abiertas',
       dataIndex: 'openOrdersTotal',
       key: 'openOrdersTotal',
       width: '20%',
     },
     {
-      title: 'Unsettled balances',
+      title: language === 'en' ? 'Unsettled balances' : 'Saldo sin liquidar',
       dataIndex: 'openOrdersFree',
       key: 'openOrdersFree',
       width: '20%',
     },
     {
-      title: 'Selected token account',
+      title: language === 'en' ? 'Selected token account' : 'Cuenta seleccionada',
       key: 'selectTokenAccount',
       width: '20%',
       render: (walletBalance) => (
@@ -133,14 +135,14 @@ export default function WalletBalancesTable({
   return (
     <React.Fragment>
       <DataTable
-        emptyLabel="No balances"
+        emptyLabel={language === 'en' ? 'No balances' : 'No hay saldos para mostrar'}
         dataSource={walletBalances}
         columns={columns}
         pagination={false}
       />
       {connected && (
         <Button onClick={onSettleFunds} loading={settlingFunds}>
-          Settle all funds
+          {language === 'en' ? 'Settle all funds' : 'Liquidar todos los fondos'}
         </Button>
       )}
     </React.Fragment>

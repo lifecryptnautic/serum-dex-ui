@@ -22,6 +22,9 @@ import {
 
 const ASSET_URL =
   'https://cdn.jsdelivr.net/gh/solana-labs/oyster@main/assets/wallets';
+
+const language = (localStorage.getItem('language')? localStorage.getItem('language'): 'es');
+
 export const WALLET_PROVIDERS = [
   {
     name: 'sollet.io',
@@ -182,7 +185,7 @@ export function WalletProvider({ children }) {
     >
       {children}
       <Modal
-        title="Select Wallet"
+        title={language === 'en' ? 'Select Wallet' : 'Seleccione la billetera'}
         okText="Connect"
         visible={isModalVisible}
         okButtonProps={{ style: { display: 'none' } }}

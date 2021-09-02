@@ -33,6 +33,7 @@ interface App {
 }
 
 export default function AppSearch(props) {
+  const language = (localStorage.getItem('language')? localStorage.getItem('language'): 'es');
   const [searchMatches, setSearchMatches] = useState<App[]>([]);
   const [searchValue, setSearchValue] = useState<string | undefined>(undefined);
 
@@ -82,7 +83,7 @@ export default function AppSearch(props) {
       value={searchValue}
       placeholder={
         props.focussed || props.focussed === undefined
-          ? 'Search for dex, swap, wallet, token...'
+          ? (language === 'en' ? 'Search for dex, swap, wallet, token...' : 'Buscar en el sitio')
           : ''
       }
       onSearch={handleSearch}

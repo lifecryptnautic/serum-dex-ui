@@ -50,6 +50,13 @@ const EXTERNAL_LINKS = {
 };
 
 export default function TopBar() {
+  const language = (localStorage.getItem('language')? localStorage.getItem('language'): 'es');
+
+  const changeLanguage = (lang) => {
+    localStorage.setItem('language',lang)
+    window.location.reload()
+  }
+
   const { connected, wallet } = useWallet();
   const {
     endpoint,
@@ -156,31 +163,31 @@ export default function TopBar() {
           }}
         >
           <Menu.Item key={tradePageUrl} style={{ margin: '0 10px 0 20px' }}>
-            TRADE
+            {language === 'en' ? 'TRADE' : 'OPERAR'}
           </Menu.Item>
           {connected && (!searchFocussed || location.pathname === '/balances') && (
             <Menu.Item key="/balances" style={{ margin: '0 10px' }}>
-              BALANCES
+              {language === 'en' ? 'BALANCES' : 'SALDOS'}
             </Menu.Item>
           )}
           {connected && (!searchFocussed || location.pathname === '/orders') && (
             <Menu.Item key="/orders" style={{ margin: '0 10px' }}>
-              ORDERS
+              {language === 'en' ? 'ORDERS' : 'ÓRDENES'}
             </Menu.Item>
           )}
           {connected && (!searchFocussed || location.pathname === '/convert') && (
             <Menu.Item key="/convert" style={{ margin: '0 10px' }}>
-              CONVERT
+              {language === 'en' ? 'CONVERT' : 'CONVERSOR'}
             </Menu.Item>
           )}
           {(!searchFocussed || location.pathname === '/list-new-market') && (
             <Menu.Item key="/list-new-market" style={{ margin: '0 10px' }}>
-              ADD MARKET
+              {language === 'en' ? 'ADD MARKET' : 'AGREGAR MERCADO'}
             </Menu.Item>
           )}
           {!searchFocussed && (
             <Menu.SubMenu
-              title="LEARN"
+              title={language === 'en' ? 'LEARN' : 'APRENDIZAJE'}
               onTitleClick={() =>
                 window.open(EXTERNAL_LINKS['/learn'], '_blank')
               }
@@ -192,7 +199,7 @@ export default function TopBar() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Adding a market
+                  {language === 'en' ? 'Adding a market' : 'Agregar un mercado'}
                 </a>
               </Menu.Item>
               <Menu.Item key="/wallet-support">
@@ -201,7 +208,7 @@ export default function TopBar() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Supported wallets
+                  {language === 'en' ? 'Supported wallets' : 'Billeteras soportadas'}
                 </a>
               </Menu.Item>
               <Menu.Item key="/dex-list">
@@ -210,7 +217,7 @@ export default function TopBar() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  DEX list
+                  {language === 'en' ? 'DEX list' : 'Lista de DEX'}
                 </a>
               </Menu.Item>
               <Menu.Item key="/developer-resources">
@@ -219,7 +226,7 @@ export default function TopBar() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Developer resources
+                  {language === 'en' ? 'Developer resources' : 'Recursos para desarrolladores'}
                 </a>
               </Menu.Item>
               <Menu.Item key="/explorer">
@@ -228,7 +235,7 @@ export default function TopBar() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Solana block explorer
+                  {language === 'en' ? 'Solana block explorer' : 'Explorador de Solana'}
                 </a>
               </Menu.Item>
               <Menu.Item key="/srm-faq">
@@ -237,7 +244,7 @@ export default function TopBar() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  SRM FAQ
+                  {language === 'en' ? 'SRM FAQ' : 'Preguntas frecuentes'}
                 </a>
               </Menu.Item>
             </Menu.SubMenu>
@@ -290,6 +297,17 @@ export default function TopBar() {
                     {name}
                   </Select.Option>
                 ))}
+              </Select>
+            </Col>
+            <Col>
+              <Select
+                onChange={changeLanguage}
+                style={{ marginRight: 8, width: '150px' }}
+                placeholder={language === 'en' ? 'Select language' : 'Seleccione el idioma de la interfaz'}
+                defaultValue={language?.toString()}
+              >
+                <Select.Option value="es">Español</Select.Option>
+                <Select.Option value="en">English</Select.Option>
               </Select>
             </Col>
           </Row>

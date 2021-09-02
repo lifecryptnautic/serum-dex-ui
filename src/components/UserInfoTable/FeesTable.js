@@ -8,6 +8,10 @@ import { percentFormat } from '../../utils/utils';
 export default function FeesTable() {
   const [feeAccounts] = useFeeDiscountKeys();
 
+  const language = localStorage.getItem('language')
+    ? localStorage.getItem('language')
+    : 'es';
+
   const columns = [
     {
       title: 'Fee Tier',
@@ -19,7 +23,7 @@ export default function FeesTable() {
           {row.index === 0 ? (
             <div style={{ marginLeft: 10 }}>
               <Tag color={'#41C77A'} style={{ fontWeight: 700 }}>
-                Selected
+                {language === 'en' ? 'Selected' : 'Seleccionado'}
               </Tag>
             </div>
           ) : null}
@@ -27,32 +31,32 @@ export default function FeesTable() {
       ),
     },
     {
-      title: 'Taker',
+      title: language === 'en' ? 'Taker' : 'Tomador',
       dataIndex: 'taker',
       key: 'taker',
       render: (feeTier, row) =>
         percentFormat.format(getFeeRates(row.feeTier).taker),
     },
     {
-      title: 'Maker',
+      title: language === 'en' ? 'Maker' : 'Creador',
       dataIndex: 'maker',
       key: 'maker',
       render: (feeTier, row) =>
         percentFormat.format(getFeeRates(row.feeTier).maker),
     },
     {
-      title: `Public Key`,
+      title: language === 'en' ? `Public Key` : 'Clave pública',
       dataIndex: 'pubkey',
       key: 'pubkey',
       render: (pubkey) => pubkey.toBase58(),
     },
     {
-      title: `Balance`,
+      title: language === 'en' ? `Balance` : 'Saldo',
       dataIndex: 'balance',
       key: 'balance',
     },
     {
-      title: `Mint`,
+      title: language === 'en' ? `Mint` : 'Moneda',
       dataIndex: 'mint',
       key: 'mint',
       render: (_, row) =>
@@ -79,14 +83,18 @@ export default function FeesTable() {
             columns={columns}
             pagination={true}
             pageSize={5}
-            emptyLabel="No (M)SRM accounts"
+            emptyLabel={
+              language === 'en' ? 'No (M)SRM accounts' : 'No hay cuentas (M)SRM'
+            }
           />
         </Col>
       </Row>
       <Row style={{ marginTop: 8 }}>
         <Col>
           <Typography>
-            Holding SRM or MSRM makes you eligible for fee discounts:
+            {language === 'en'
+              ? 'Holding SRM or MSRM makes you eligible for fee discounts:'
+              : 'Tener SRM o MSRM lo hace elegible para descuentos en las tarifas:'}
           </Typography>
           <FeeScheduleTable />
         </Col>
@@ -97,6 +105,10 @@ export default function FeesTable() {
 
 function FeeScheduleTable() {
   // Representation of serum-js/src/fees.ts
+  const language = localStorage.getItem('language')
+    ? localStorage.getItem('language')
+    : 'es';
+
   const dataSource = [
     { feeTier: 0, taker: 0.0022, maker: -0.0003, token: '', balance: '' },
     { feeTier: 1, taker: 0.002, maker: -0.0003, token: 'SRM', balance: 100 },
@@ -120,31 +132,35 @@ function FeeScheduleTable() {
   ];
   const columns = [
     {
-      title: 'Fee Tier',
+      title: language === 'en' ? 'Fee Tier' : 'Nivel de tarifa',
       dataIndex: 'feeTier',
       key: 'feeTier',
     },
     {
-      title: 'Taker',
+      title: language === 'en' ? 'Taker' : 'Tomador',
       dataIndex: 'taker',
       key: 'taker',
       render: (feeTier, row) =>
         percentFormat.format(getFeeRates(row.feeTier).taker),
     },
     {
-      title: 'Maker',
+      title: language === 'en' ? 'Maker' : 'Creador',
       dataIndex: 'maker',
       key: 'maker',
       render: (feeTier, row) =>
         percentFormat.format(getFeeRates(row.feeTier).maker),
     },
     {
-      title: 'Requirements',
+      title: language === 'en' ? 'Requirements' : 'Requerimientos',
       dataIndex: 'requirements',
       key: 'requirements',
       render: (_, row) => (
         <Typography>
-          {!row.balance ? 'None' : `≥ ${row.balance} ${row.token}`}
+          {!row.balance
+            ? language === 'en'
+              ? 'None'
+              : 'Ninguno'
+            : `≥ ${row.balance} ${row.token}`}
         </Typography>
       ),
     },

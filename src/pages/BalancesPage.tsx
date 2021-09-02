@@ -30,10 +30,12 @@ export default function BalancesPage() {
     return balances;
   });
 
+  const language = (localStorage.getItem('language')? localStorage.getItem('language'): 'es');
+
   return (
     <FloatingElement style={{ flex: 1, paddingTop: 10 }}>
       <Tabs defaultActiveKey="walletBalances">
-        <TabPane tab="Wallet Balances" key="walletBalances">
+        <TabPane tab={language === 'en' ? 'Wallet Balances' : 'Saldos de la billetera'} key="walletBalances">
           <WalletBalancesTable walletBalances={data} />
         </TabPane>
       </Tabs>

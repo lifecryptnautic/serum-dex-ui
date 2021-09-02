@@ -8,14 +8,18 @@ export default function FillsTable() {
 
   const { quoteCurrency } = useMarket();
 
+  const language = localStorage.getItem('language')
+    ? localStorage.getItem('language')
+    : 'es';
+
   const columns = [
     {
-      title: 'Market',
+      title: language === 'en' ? 'Market' : 'Mercado',
       dataIndex: 'marketName',
       key: 'marketName',
     },
     {
-      title: 'Side',
+      title: language === 'en' ? 'Side' : 'Tipo',
       dataIndex: 'side',
       key: 'side',
       render: (side) => (
@@ -28,22 +32,29 @@ export default function FillsTable() {
       ),
     },
     {
-      title: `Size`,
+      title: language === 'en' ? `Size` : 'Tamaño',
       dataIndex: 'size',
       key: 'size',
     },
     {
-      title: `Price`,
+      title: language === 'en' ? `Price` : 'Precio',
       dataIndex: 'price',
       key: 'price',
     },
     {
-      title: `Liquidity`,
+      title: language === 'en' ? `Liquidity` : 'Liquidez',
       dataIndex: 'liquidity',
       key: 'liquidity',
     },
     {
-      title: quoteCurrency ? `Fees (${quoteCurrency})` : 'Fees',
+      title:
+        language === 'en'
+          ? quoteCurrency
+            ? `Fees (${quoteCurrency})`
+            : 'Fees'
+          : quoteCurrency
+          ? `Tarifa (${quoteCurrency})`
+          : 'Tarifa',
       dataIndex: 'feeCost',
       key: 'feeCost',
     },
@@ -64,7 +75,7 @@ export default function FillsTable() {
             columns={columns}
             pagination={true}
             pageSize={5}
-            emptyLabel="No fills"
+            emptyLabel={language === 'en' ? 'No fills' : 'No hay registros'}
           />
         </Col>
       </Row>

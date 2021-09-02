@@ -96,11 +96,12 @@ export default function StandaloneBalancesDisplay() {
   const [autoSettleEnabled] = useLocalStorageState('autoSettleEnabled', true);
   const [lastSettledAt, setLastSettledAt] = useState<number>(0);
   const { usdcRef, usdtRef } = useReferrer();
+  const language = (localStorage.getItem('language')? localStorage.getItem('language'): 'es')
   async function onSettleFunds() {
     if (!wallet) {
       notify({
-        message: 'Wallet not connected',
-        description: 'wallet is undefined',
+        message: language === 'en' ? 'Wallet not connected': 'Billetera sin conectar',
+        description: language === 'en' ? 'wallet is undefined' : 'billetera indefinida',
         type: 'error',
       });
       return;
@@ -108,32 +109,32 @@ export default function StandaloneBalancesDisplay() {
 
     if (!market) {
       notify({
-        message: 'Error settling funds',
-        description: 'market is undefined',
+        message: language === 'en' ? 'Error settling funds': 'Error al liquidar fondos',
+        description: language === 'en' ? 'market is undefined' : 'mercado indefinido',
         type: 'error',
       });
       return;
     }
     if (!openOrdersAccount) {
       notify({
-        message: 'Error settling funds',
-        description: 'Open orders account is undefined',
+        message: language === 'en' ? 'Error settling funds': 'Error al liquidar fondos',
+        description: language === 'en' ? 'Open orders account is undefined': 'La cuenta de pedidos abiertos no está definida',
         type: 'error',
       });
       return;
     }
     if (!baseCurrencyAccount) {
       notify({
-        message: 'Error settling funds',
-        description: 'Open orders account is undefined',
+        message: language === 'en' ? 'Error settling funds': 'Error al liquidar fondos',
+        description: language === 'en' ? 'Open orders account is undefined': 'La cuenta de pedidos abiertos no está definida',
         type: 'error',
       });
       return;
     }
     if (!quoteCurrencyAccount) {
       notify({
-        message: 'Error settling funds',
-        description: 'Open orders account is undefined',
+        message: language === 'en' ? 'Error settling funds': 'Error al liquidar fondos',
+        description: language === 'en' ? 'Open orders account is undefined': 'La cuenta de pedidos abiertos no está definida',
         type: 'error',
       });
       return;
@@ -152,7 +153,7 @@ export default function StandaloneBalancesDisplay() {
       });
     } catch (e) {
       notify({
-        message: 'Error settling funds',
+        message: language === 'en' ? 'Error settling funds': 'Error al liquidar fondos',
         description: e.message,
         type: 'error',
       });
@@ -248,7 +249,6 @@ export default function StandaloneBalancesDisplay() {
     'MER' : Mer,
     'MSRM' : Msrm,
     'OXY' : Oxy,
-    'OXY/WUSDT' : Oxy,
     'RAY' : Ray,
     'RSR' : Rsr,
     'SBR' : Sbr,
@@ -300,7 +300,7 @@ export default function StandaloneBalancesDisplay() {
               justify="space-between"
               style={{ paddingBottom: 12 }}
             >
-              <Col>Wallet balance:</Col>
+              <Col>{(language === 'en')?"Wallet balance:" : "Saldo:"}</Col>
               <Col>{balances && balances.wallet}</Col>
             </RowBox>
             <RowBox
@@ -308,7 +308,7 @@ export default function StandaloneBalancesDisplay() {
               justify="space-between"
               style={{ paddingBottom: 12 }}
             >
-              <Col>Unsettled balance:</Col>
+              <Col>{(language === 'en')?"Unsettled balance:" : "Saldo sin liquidar:"}</Col>
               <Col>{balances && balances.unsettled}</Col>
             </RowBox>
             <RowBox align="middle" justify="space-around">
@@ -318,21 +318,21 @@ export default function StandaloneBalancesDisplay() {
                   size="large"
                   onClick={() => setBaseOrQuote(baseOrQuote)}
                 >
-                  Deposit
+                  {(language === 'en')?"Deposit" : "Depositar"}
                 </ActionButton>
               </Col>
               <Col style={{ width: 150 }}>
                 <ActionButton block size="large" onClick={onSettleFunds}>
-                  Settle
+                {(language === 'en')?"Settle" : "Liquidar"}
                 </ActionButton>
               </Col>
             </RowBox>
             <Tip>
-              All deposits go to your{' '}
+              {(language === 'en')?"All deposits go to your " : "Todos los depósitos irán a su "}
               <Link external to={providerUrl}>
                 {providerName}
               </Link>{' '}
-              wallet
+              {(language === 'en')?"wallet" : "billetera"}
             </Tip>
           </React.Fragment>
         ),

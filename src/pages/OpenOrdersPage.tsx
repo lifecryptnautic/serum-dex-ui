@@ -26,6 +26,8 @@ export default function OpenOrdersPage() {
     ]),
   );
 
+  const language = (localStorage.getItem('language')? localStorage.getItem('language'): 'es');
+
   const dataSource: OrderWithMarketAndMarketName[] = (openOrders || [])
     .map((orderInfos) =>
       orderInfos.orders.map((order) => {
@@ -54,7 +56,7 @@ export default function OpenOrdersPage() {
   return (
     <FloatingElement style={{ flex: 1, paddingTop: 10 }}>
       <Button onClick={refreshOpenOrders} loading={!loaded}>
-        Refresh
+        {language === 'en' ? 'Refresh' : 'Refrescar'}
       </Button>
       <OpenOrderTable
         openOrders={dataSource}

@@ -33,9 +33,11 @@ export default function CustomClusterEndpointDialog({
   };
   const canSubmit = customEndpoint !== '' && customEndpointName !== '';
 
+  const language = (localStorage.getItem('language')? localStorage.getItem('language'): 'es');
+
   return (
     <Modal
-      title={'Add custom endpoint'}
+      title={language === 'en' ? 'Add custom endpoint' : 'Añadir endpoint personalizado'}
       visible={visible}
       onOk={onSubmit}
       okText={'Add'}
@@ -45,7 +47,7 @@ export default function CustomClusterEndpointDialog({
       <Row style={{ marginBottom: 8 }}>
         <Col span={24}>
           <Input
-            placeholder="Cluster Name"
+            placeholder={language === 'en' ? 'Cluster Name' : 'Nombre del Cluster'}
             value={customEndpointName}
             onChange={(e) => setCustomEndpointName(e.target.value)}
           />

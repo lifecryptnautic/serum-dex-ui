@@ -22,6 +22,10 @@ export default function BalancesTable({
   const { wallet } = useWallet();
   const { usdcRef, usdtRef } = useReferrer();
 
+  const language = localStorage.getItem('language')
+    ? localStorage.getItem('language')
+    : 'es';
+
   async function onSettleFunds(market, openOrders) {
     try {
       await settleFunds({
@@ -42,7 +46,10 @@ export default function BalancesTable({
       });
     } catch (e) {
       notify({
-        message: 'Error settling funds',
+        message:
+          language === 'en'
+            ? 'Error settling funds'
+            : 'Error liquidando los fondos',
         description: e.message,
         type: 'error',
       });
@@ -54,30 +61,30 @@ export default function BalancesTable({
   const columns = [
     showMarket
       ? {
-          title: 'Market',
+          title: language === 'en' ? 'Market' : 'Mercado',
           dataIndex: 'marketName',
           key: 'marketName',
         }
       : null,
     {
-      title: 'Coin',
+      title: language === 'en' ? 'Coin' : 'Moneda',
       dataIndex: 'coin',
       key: 'coin',
     },
     hideWalletBalance
       ? null
       : {
-          title: 'Wallet Balance',
+          title: language === 'en' ? 'Wallet Balance' : 'Saldo de la billetera',
           dataIndex: 'wallet',
           key: 'wallet',
         },
     {
-      title: 'Orders',
+      title: language === 'en' ? 'Orders' : 'Órdenes',
       dataIndex: 'orders',
       key: 'orders',
     },
     {
-      title: 'Unsettled',
+      title: language === 'en' ? 'Unsettled' : 'Sin liquidar',
       dataIndex: 'unsettled',
       key: 'unsettled',
     },
@@ -90,7 +97,7 @@ export default function BalancesTable({
             style={{ marginRight: 12 }}
             onClick={() => onSettleFunds(market, openOrders)}
           >
-            Settle {marketName}
+            {language === 'en' ? 'Settle' : 'Liquidar'} {marketName}
           </Button>
         </div>
       ),

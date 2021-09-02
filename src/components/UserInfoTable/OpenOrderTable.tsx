@@ -32,6 +32,7 @@ export default function OpenOrderTable({
   let connection = useSendConnection();
 
   const [cancelId, setCancelId] = useState(null);
+  const language = (localStorage.getItem('language')? localStorage.getItem('language'): 'es');
 
   async function cancel(order) {
     setCancelId(order?.orderId);
@@ -48,7 +49,7 @@ export default function OpenOrderTable({
       });
     } catch (e) {
       notify({
-        message: 'Error cancelling order',
+        message: language === 'en' ? 'Error cancelling order' : 'Error cancelando la orden',
         description: e.message,
         type: 'error',
       });
@@ -67,14 +68,14 @@ export default function OpenOrderTable({
 
   const columns = [
     {
-      title: 'Market',
+      title: language === 'en' ? 'Market': 'Mercado',
       dataIndex: 'marketName',
       key: 'marketName',
       filters: marketFilter ? marketFilters : undefined,
       onFilter: (value, record) => record.marketName.indexOf(value) === 0,
     },
     {
-      title: 'Side',
+      title: language === 'en' ? 'Side' : 'Tipo',
       dataIndex: 'side',
       key: 'side',
       render: (side) => (
@@ -97,14 +98,14 @@ export default function OpenOrderTable({
       showSorterTooltip: false,
     },
     {
-      title: 'Size',
+      title: language === 'en' ? 'Size': 'Tamaño',
       dataIndex: 'size',
       key: 'size',
       sorter: (a, b) => b.size - a.size,
       showSorterTooltip: false,
     },
     {
-      title: 'Price',
+      title: language === 'en' ? 'Price': 'Precio',
       dataIndex: 'price',
       key: 'price',
       sorter: (a, b) => b.price - a.price,
@@ -119,7 +120,7 @@ export default function OpenOrderTable({
             onClick={() => cancel(order)}
             loading={cancelId + '' === order?.orderId + ''}
           >
-            Cancel
+            {language === 'en' ? 'Cancel': 'Cancelar'}
           </CancelButton>
         </div>
       ),
@@ -134,7 +135,7 @@ export default function OpenOrderTable({
     <Row>
       <Col span={24}>
         <DataTable
-          emptyLabel="No open orders"
+          emptyLabel={language === 'en' ? 'No open orders': 'No hay órdenes abiertas'}
           dataSource={dataSource}
           columns={columns}
           pagination={true}

@@ -5,6 +5,7 @@ import {
   ChartingLibraryWidgetOptions,
   IChartingLibraryWidget,
   ChartStyle,
+  LanguageCode,
 } from '../../charting_library';
 import { useMarket, USE_MARKETS } from '../../utils/markets';
 import * as saveLoadAdapter from './saveLoadAdapter';
@@ -61,6 +62,8 @@ export const TVChartContainer = () => {
     localStorage.getItem('chartproperties') || '{}',
   );
 
+  const language = (localStorage.getItem('language')? localStorage.getItem('language'): 'es') as LanguageCode
+
   React.useEffect(() => {
     const savedProperties = flatten(chartProperties, {
       restrictTo: ['scalesProperties', 'paneProperties', 'tradingProperties'],
@@ -84,7 +87,7 @@ export const TVChartContainer = () => {
       library_path: defaultProps.libraryPath as string,
       auto_save_delay: 5,
 
-      locale: 'en',
+      locale: language,
       disabled_features: ['use_localstorage_for_settings'],
       enabled_features: ['study_templates'],
       load_last_chart: true,

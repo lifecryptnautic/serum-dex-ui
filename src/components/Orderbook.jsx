@@ -54,6 +54,10 @@ export default function Orderbook({ smallScreen, depth = 7, onPrice, onSize }) {
 
   const [orderbookData, setOrderbookData] = useState(null);
 
+  const language = localStorage.getItem('language')
+    ? localStorage.getItem('language')
+    : 'es';
+
   useInterval(() => {
     if (
       !currentOrderbookData.current ||
@@ -111,13 +115,13 @@ export default function Orderbook({ smallScreen, depth = 7, onPrice, onSize }) {
         smallScreen ? { flex: 1 } : { height: '500px', overflow: 'hidden' }
       }
     >
-      <Title>Orderbook</Title>
+      <Title>{language === 'en' ? 'Orderbook' : 'Registro de órdenes'}</Title>
       <SizeTitle>
         <Col span={12} style={{ textAlign: 'left' }}>
-          Size ({baseCurrency})
+          {language === 'en' ? 'Size' : 'Tamaño'} ({baseCurrency})
         </Col>
         <Col span={12} style={{ textAlign: 'right' }}>
-          Price ({quoteCurrency})
+          {language === 'en' ? 'Price' : 'Precio'} ({quoteCurrency})
         </Col>
       </SizeTitle>
       {orderbookData?.asks.map(({ price, size, sizePercent }) => (

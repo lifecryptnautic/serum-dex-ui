@@ -74,6 +74,8 @@ export default function TradeForm({
   const [submitting, setSubmitting] = useState(false);
   const [sizeFraction, setSizeFraction] = useState(0);
 
+  const language = (localStorage.getItem('language')? localStorage.getItem('language'): 'es')
+
   const availableQuote =
     openOrdersAccount && market
       ? market.quoteSplSizeToNumber(openOrdersAccount.quoteTokenFree)
@@ -295,7 +297,7 @@ export default function TradeForm({
               borderColor: side === 'buy' ? '#02bf76' : '',
             }}
           >
-            BUY
+            {language === 'en' ? 'BUY': 'COMPRAR'}
           </Radio.Button>
           <Radio.Button
             value="sell"
@@ -306,12 +308,12 @@ export default function TradeForm({
               borderColor: side === 'sell' ? '#F23B69' : '',
             }}
           >
-            SELL
+            {language === 'en' ? 'SELL': 'VENDER'}
           </Radio.Button>
         </Radio.Group>
         <Input
           style={{ textAlign: 'right', paddingBottom: 8 }}
-          addonBefore={<div style={{ width: '30px' }}>Price</div>}
+          addonBefore={<div style={{ width: '30px' }}>{language === 'en' ? 'Price': 'Precio'}</div>}
           suffix={
             <span style={{ fontSize: 10, opacity: 0.5 }}>{quoteCurrency}</span>
           }
@@ -323,7 +325,7 @@ export default function TradeForm({
         <Input.Group compact style={{ paddingBottom: 8 }}>
           <Input
             style={{ width: 'calc(50% + 30px)', textAlign: 'right' }}
-            addonBefore={<div style={{ width: '30px' }}>Size</div>}
+            addonBefore={<div style={{ width: '38px' }}>{language === 'en' ? 'Size': 'Tamaño'}</div>}
             suffix={
               <span style={{ fontSize: 10, opacity: 0.5 }}>{baseCurrency}</span>
             }
@@ -371,7 +373,7 @@ export default function TradeForm({
           size="large"
           loading={submitting}
         >
-          Buy {baseCurrency}
+          {language === 'en' ? 'Buy': 'Comprar'} {baseCurrency}
         </BuyButton>
       ) : (
         <SellButton
@@ -382,7 +384,7 @@ export default function TradeForm({
           size="large"
           loading={submitting}
         >
-          Sell {baseCurrency}
+          {language === 'en' ? 'Sell': 'Vender'} {baseCurrency}
         </SellButton>
       )}
     </FloatingElement>

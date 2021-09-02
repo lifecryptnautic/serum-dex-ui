@@ -20,14 +20,21 @@ const Wrapper = styled.div`
 `;
 
 export default function ListNewMarketPage() {
+  const language = localStorage.getItem('language')
+    ? localStorage.getItem('language')
+    : 'es';
   const connection = useConnection();
   const { wallet, connected } = useWallet();
   const [baseMintInput, baseMintInfo] = useMintInput(
     'baseMint',
     <Text>
-      Base Token Mint Address{' '}
+      {language === 'en'
+        ? 'Base Token Mint Address '
+        : 'Dirección de la moneda base '}
       <Text type="secondary">
-        (e.g. BTC solana address:{' '}
+        {language === 'en'
+          ? '(e.g. BTC solana address: '
+          : '(por ejemplo, la dirección de BTC solana es: '}
         {
           <Text type="secondary" code>
             9n4nbM75f5Ui33ZbPYXn59EwSgE8CGsHtAeTH5YFeJ9E
@@ -36,14 +43,20 @@ export default function ListNewMarketPage() {
         )
       </Text>
     </Text>,
-    'The base token is the token being traded. For example, the base token of a BTC/USDT market is BTC.',
+    language === 'en'
+      ? 'The base token is the token being traded. For example, the base token of a BTC/USDT market is BTC.'
+      : 'La moneda base es la moneda que se intercambia. Por ejemplo, la moneda base de un mercado BTC / USDT es BTC.',
   );
   const [quoteMintInput, quoteMintInfo] = useMintInput(
     'quoteMint',
     <Text>
-      Quote Token Mint Address{' '}
+      {language === 'en'
+        ? 'Quote Token Mint Address '
+        : 'Dirección de la moneda de cotización '}
       <Text type="secondary">
-        (e.g. USDT solana address:{' '}
+        {language === 'en'
+          ? '(e.g. USDT solana address: '
+          : '(por ejemplo, la dirección de USDT solana es: '}
         {
           <Text type="secondary" code>
             BQcdHdAQW1hczDbBi9hiegXAR7A98Q9jx3X3iBBBDiq4
@@ -52,7 +65,9 @@ export default function ListNewMarketPage() {
         )
       </Text>
     </Text>,
-    'The quote token is the token used to price trades. For example, the quote token of a BTC/USDT market is USDT.',
+    language === 'en'
+      ? 'The quote token is the token used to price trades. For example, the quote token of a BTC/USDT market is USDT.'
+      : 'La moneda de cotización es la moneda que se utiliza para cotizar las operaciones. Por ejemplo, la moneda de cotización de un mercado BTC / USDT es USDT.',
   );
   const [lotSize, setLotSize] = useState('1');
   const [tickSize, setTickSize] = useState('0.01');
@@ -112,7 +127,9 @@ export default function ListNewMarketPage() {
   return (
     <Wrapper>
       <FloatingElement>
-        <Title level={4}>List New Market</Title>
+        <Title level={4}>
+          {language === 'en' ? 'List New Market' : 'Nueva lista de mercado'}
+        </Title>
         <Form
           labelCol={{ span: 24 }}
           wrapperCol={{ span: 24 }}
@@ -123,9 +140,21 @@ export default function ListNewMarketPage() {
           {quoteMintInput}
           <Form.Item
             label={
-              <Tooltip title="Smallest allowed order size. For a BTC/USDT market, this would be in units of BTC.">
-                Minimum Order Size{' '}
-                <Text type="secondary">(Lot size in e.g. BTC)</Text>
+              <Tooltip
+                title={
+                  language === 'en'
+                    ? 'Smallest allowed order size. For a BTC/USDT market, this would be in units of BTC.'
+                    : 'Tamaño mínimo de orden permitido. Para un mercado BTC / USDT, se mediría en unidades de BTC.'
+                }
+              >
+                {language === 'en'
+                  ? 'Minimum Order Size '
+                  : 'Tamaño mínimo de orden '}
+                <Text type="secondary">
+                  {language === 'en'
+                    ? '(Lot size in e.g. BTC)'
+                    : '(Tamaño mínimo del lote en BTC, por ejemplo)'}
+                </Text>
               </Tooltip>
             }
             name="lotSize"
@@ -149,9 +178,19 @@ export default function ListNewMarketPage() {
           </Form.Item>
           <Form.Item
             label={
-              <Tooltip title="Smallest amount by which prices can move. For a BTC/USDT market, this would be in units of USDT.">
-                Tick Size{' '}
-                <Text type="secondary">(Price increment in e.g. USDT)</Text>
+              <Tooltip
+                title={
+                  language === 'en'
+                    ? 'Smallest amount by which prices can move. For a BTC/USDT market, this would be in units of USDT.'
+                    : 'Cantidad mínima por la que pueden moverse los precios. Para un mercado BTC / USDT, se mediría en unidades de USDT.'
+                }
+              >
+                {language === 'en' ? 'Tick Size ' : 'Tamaño del Tick '}
+                <Text type="secondary">
+                  {language === 'en'
+                    ? '(Price increment in e.g. USDT)'
+                    : '(Incremento de precio en USDT, por ejemplo)'}
+                </Text>
               </Tooltip>
             }
             name="tickSize"
@@ -180,7 +219,13 @@ export default function ListNewMarketPage() {
               disabled={!canSubmit}
               loading={submitting}
             >
-              {connected ? 'Submit' : 'Not connected to wallet'}
+              {connected
+                ? language === 'en'
+                  ? 'Submit'
+                  : 'Guardar'
+                : language === 'en'
+                ? 'Not connected to wallet'
+                : 'No está conectado a la billetera'}
             </Button>
           </Form.Item>
         </Form>
