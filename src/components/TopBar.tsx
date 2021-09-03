@@ -47,6 +47,7 @@ const EXTERNAL_LINKS = {
   '/developer-resources': 'https://serum-academy.com/en/developer-resources/',
   '/explorer': 'https://solscan.io',
   '/srm-faq': 'https://projectserum.com/srm-faq',
+  '/swap': 'https://swap.projectserum.com',
 };
 
 export default function TopBar() {
@@ -165,6 +166,17 @@ export default function TopBar() {
           <Menu.Item key={tradePageUrl} style={{ margin: '0 10px 0 20px' }}>
             {language === 'en' ? 'TRADE' : 'OPERAR'}
           </Menu.Item>
+          {!searchFocussed && (
+            <Menu.Item key="/swap" style={{ margin: '0 10px' }}>
+              <a
+                href={EXTERNAL_LINKS['/swap']}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                SWAP
+              </a>
+            </Menu.Item>
+          )}
           {connected && (!searchFocussed || location.pathname === '/balances') && (
             <Menu.Item key="/balances" style={{ margin: '0 10px' }}>
               {language === 'en' ? 'BALANCES' : 'SALDOS'}
