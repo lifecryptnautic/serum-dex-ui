@@ -9,12 +9,12 @@ import usePrevious from '../utils/usePrevious';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
 const Title = styled.div`
-  color: rgba(255, 255, 255, 1);
+  color: rgba(255, 251, 252, 1);
 `;
 
 const SizeTitle = styled(Row)`
   padding: 20px 0 14px;
-  color: #434a59;
+  color: #fde907;
 `;
 
 const MarkPriceTitle = styled(Row)`
@@ -189,9 +189,7 @@ const OrderbookRow = React.memo(
           <Line
             data-width={sizePercent + '%'}
             data-bgcolor={
-              side === 'buy'
-                ? 'rgba(65, 199, 122, 0.6)'
-                : 'rgba(242, 60, 105, 0.6)'
+              side === 'buy' ? 'rgba(0,186,19,1)' : 'rgba(245,0,12,1)'
             }
           />
           <Price onClick={onPriceClick}>{formattedPrice}</Price>
@@ -210,10 +208,10 @@ const MarkPriceComponent = React.memo(
 
     let markPriceColor =
       markPrice > previousMarkPrice
-        ? '#41C77A'
+        ? '#00BA13'
         : markPrice < previousMarkPrice
-        ? '#F23B69'
-        : 'white';
+        ? '#F5000C'
+        : '#FDE907';
 
     let formattedMarkPrice =
       markPrice &&

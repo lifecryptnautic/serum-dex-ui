@@ -24,7 +24,7 @@ export default function FillsTable() {
       key: 'side',
       render: (side) => (
         <Tag
-          color={side === 'buy' ? '#41C77A' : '#F23B69'}
+          color={side === 'buy' ? '#00BA13' : '#F5000C'}
           style={{ fontWeight: 700 }}
         >
           {side.charAt(0).toUpperCase() + side.slice(1)}

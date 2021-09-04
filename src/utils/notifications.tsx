@@ -33,7 +33,7 @@ export function notify({
     ),
     placement,
     style: {
-      backgroundColor: 'white',
+      backgroundColor: '#179AFF',
     },
   });
 }

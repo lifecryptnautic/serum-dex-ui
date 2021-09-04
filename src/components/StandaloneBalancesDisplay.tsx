@@ -24,43 +24,81 @@ import { useInterval } from '../utils/useInterval';
 import { useLocalStorageState } from '../utils/utils';
 import { AUTO_SETTLE_DISABLED_OVERRIDE } from '../utils/preferences';
 import { useReferrer } from '../utils/referrer';
+import Oneinch from '../assets/logos/1inch.svg';
 import Aave from '../assets/logos/Aave.svg';
 import Akro from '../assets/logos/Akro.svg';
 import Aleph from '../assets/logos/Aleph.png';
+import Atlas from '../assets/logos/Atlas.svg';
+import Bop from '../assets/logos/Bop.svg';
 import Btc from '../assets/logos/Btc.svg';
+import Ccai from '../assets/logos/Ccai.svg';
 import Cel from '../assets/logos/Cel.svg';
+import Comp from '../assets/logos/Comp.svg';
 import Cope from '../assets/logos/Cope.png';
 import Cream from '../assets/logos/Cream.svg';
+import Crp from '../assets/logos/Crp.svg';
+import Dxl from '../assets/logos/Dxl.svg';
 import Eth from '../assets/logos/Eth.svg';
 import Fida from '../assets/logos/Fida.svg';
 import Front from '../assets/logos/Front.png';
+import Ftr from '../assets/logos/Ftr.svg';
 import Ftt from '../assets/logos/Ftt.svg';
+import Grt from '../assets/logos/Grt.svg';
 import Hget from '../assets/logos/Hget.png';
 import Hnt from '../assets/logos/Hnt.png';
+import Holy from '../assets/logos/Holy.svg';
 import Hxro from '../assets/logos/Hxro.png';
 import Keep from '../assets/logos/Keep.svg';
 import Kin from '../assets/logos/Kin.svg';
-import Linkc from '../assets/logos/Link.svg';
+import Lien from '../assets/logos/Lien.svg';
+import Like from '../assets/logos/Like.svg';
+import Linkicon from '../assets/logos/Link.svg';
+import Liq from '../assets/logos/Liq.svg';
+import Lqid from '../assets/logos/Lqid.svg';
 import Lua from '../assets/logos/Lua.webp';
 import Maps from '../assets/logos/Maps.webp';
 import Math from '../assets/logos/Math.webp';
+import Media from '../assets/logos/Media.svg';
 import Mer from '../assets/logos/Mer.png';
-import Msrm from '../assets/logos/Msrm.svg';
+import Mngo from '../assets/logos/Mngo.svg';
+import Mola from '../assets/logos/Mola.svg';
+import Orca from '../assets/logos/Orca.svg';
+import Oxs from '../assets/logos/Oxs.svg';
 import Oxy from '../assets/logos/Oxy.png';
+import Paxg from '../assets/logos/Paxg.svg';
+import Perp from '../assets/logos/Perp.svg';
+import Polis from '../assets/logos/Polis.svg';
+import Port from '../assets/logos/Port.svg';
 import Ray from '../assets/logos/Ray.svg';
+import Renbch from '../assets/logos/Renbch.svg';
+import Renbtc from '../assets/logos/Renbtc.svg';
+import Rendgb from '../assets/logos/Rendgb.svg';
+import Rendoge from '../assets/logos/Rendoge.svg';
+import Renfil from '../assets/logos/Renfil.svg';
+import Renluna from '../assets/logos/Renluna.svg';
+import Renzec from '../assets/logos/Renzec.svg';
+import Rope from '../assets/logos/Rope.svg';
 import Rsr from '../assets/logos/Rsr.svg';
+import Sail from '../assets/logos/Sail.svg';
+import Samo from '../assets/logos/Samo.svg';
 import Sbr from '../assets/logos/Sbr.webp';
+import Seco from '../assets/logos/Seco.svg';
+import Slim from '../assets/logos/Slim.svg';
 import Slrs from '../assets/logos/Slrs.svg';
 import Sny from '../assets/logos/Sny.png';
 import Sol from '../assets/logos/Sol.svg';
+import Soldoge from '../assets/logos/Soldoge.svg';
 import Srm from '../assets/logos/Srm.svg';
+import Step from '../assets/logos/Step.svg';
 import Sushi from '../assets/logos/Sushi.svg';
 import Sxp from '../assets/logos/Sxp.svg';
 import Tomo from '../assets/logos/Tomo.svg';
+import Tulip from '../assets/logos/Tulip.svg';
 import Ubxt from '../assets/logos/Ubxt.png';
 import Uni from '../assets/logos/Uni.svg';
 import Usdc from '../assets/logos/Usdc.png';
 import Usdt from '../assets/logos/Usdt.svg';
+import Woo from '../assets/logos/Woo.svg';
 import Yfi from '../assets/logos/Yfi.svg';
 
 
@@ -74,8 +112,8 @@ const Tip = styled.p`
 `;
 
 const ActionButton = styled(Button)`
-  color: #2abdd2;
-  background-color: #212734;
+  color: #FFD100;
+  background-color: #179AFF;
   border-width: 0px;
 `;
 
@@ -225,45 +263,85 @@ export default function StandaloneBalancesDisplay() {
   ];
 
   const Logos = {
+    '1INCH' : Oneinch,
     'AAVE' : Aave,
     'AKRO' : Akro,
     'ALEPH' : Aleph,
+    'ATLAS' : Atlas,
+    'BOP' : Bop,
     'BTC' : Btc,
+    'CCAI' : Ccai,
     'CEL' : Cel,
+    'COMP' : Comp,
     'COPE' : Cope,
     'CREAM' : Cream,
+    'CRP' : Crp,
+    'DXL' : Dxl,
     'ETH' : Eth,
-    'ETHV' : Eth,
     'FIDA' : Fida,
     'FRONT' : Front,
+    'FTR' : Ftr,
     'FTT' : Ftt,
+    'GRT' : Grt,
     'HGET' : Hget,
     'HNT' : Hnt,
+    'HOLY' : Holy,
     'HXRO' : Hxro,
     'KEEP' : Keep,
     'KIN' : Kin,
-    'LINK' : Linkc,
+    'LIEN' : Lien,
+    'LIKE' : Like,
+    'LINK' : Linkicon,
+    'LIQ' : Liq,
+    'LQID' : Lqid,
     'LUA' : Lua,
     'MAPS' : Maps,
+    'MAPSPOOL' : Maps,
     'MATH' : Math,
+    'MEDIA' : Media,
     'MER' : Mer,
-    'MSRM' : Msrm,
+    'MERPOOL' : Mer,
+    'MNGO' : Mngo,
+    'MOLA' : Mola,
+    'ORCA' : Orca,
+    'OXS' : Oxs,
     'OXY' : Oxy,
+    'OXYPOOL' : Oxy,
+    'PAXG' : Paxg,
+    'PERP' : Perp,
+    'POLIS' : Polis,
+    'PORT' : Port,
     'RAY' : Ray,
+    'RAYPOOL' : Ray,
+    'ROPE' : Rope,
     'RSR' : Rsr,
+    'SAIL' : Sail,
+    'SAMO' : Samo,
     'SBR' : Sbr,
+    'SECO' : Seco,
+    'SLIM' : Slim,
     'SLRS' : Slrs,
     'SNY' : Sny,
+    'SNYPOOL' : Sny,
     'SOL' : Sol,
+    'SOLDOGE' : Soldoge,
     'SRM' : Srm,
+    'STEP' : Step,
     'SUSHI' : Sushi,
     'SXP' : Sxp,
     'TOMO' : Tomo,
+    'TULIP' : Tulip,
     'UBXT' : Ubxt,
     'UNI' : Uni,
-    'USDC' : Usdc,
     'USDT' : Usdt,
+    'USDC' : Usdc,
+    'WOO' : Woo,
     'YFI' : Yfi,
+    'renBCH' : Renbch,
+    'renBTC' : Renbtc,
+    'renDOGE' : Rendoge,
+    'renLUNA' : Renluna,
+    'renZEC' : Renzec,
   }
 
   return (
@@ -280,7 +358,7 @@ export default function StandaloneBalancesDisplay() {
                   title="Token mint"
                   trigger="hover"
                 >
-                  <InfoCircleOutlined style={{ color: '#2abdd2' }} />
+                  <InfoCircleOutlined style={{ color: '#F504B4' }} />
                 </Popover>
               )}
             </Divider>

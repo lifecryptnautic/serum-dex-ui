@@ -7,11 +7,11 @@ import FloatingElement from './layout/FloatingElement';
 import { BonfidaTrade } from '../utils/types';
 
 const Title = styled.div`
-  color: rgba(255, 255, 255, 1);
+  color: rgba(255,251,252,1);
 `;
 const SizeTitle = styled(Row)`
   padding: 20px 0 14px;
-  color: #434a59;
+  color: #FDE907;
 `;
 
 const language = (localStorage.getItem('language')? localStorage.getItem('language'): 'es');
@@ -58,7 +58,7 @@ export default function PublicTrades({ smallScreen }) {
               <Col
                 span={8}
                 style={{
-                  color: trade.side === 'buy' ? '#41C77A' : '#F23B69',
+                  color: trade.side === 'buy' ? '#00BA13' : '#F5000C',
                 }}
               >
                 {market?.tickSize && !isNaN(trade.price)
@@ -74,7 +74,7 @@ export default function PublicTrades({ smallScreen }) {
                     )
                   : trade.size}
               </Col>
-              <Col span={8} style={{ textAlign: 'right', color: '#434a59' }}>
+              <Col span={8} style={{ textAlign: 'right', color: '#E28309' }}>
                 {trade.time && new Date(trade.time).toLocaleTimeString()}
               </Col>
             </Row>

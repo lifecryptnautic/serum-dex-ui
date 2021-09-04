@@ -7,14 +7,10 @@ const { Footer } = Layout;
 const { useBreakpoint } = Grid;
 
 const footerElements = [
-  {
-    description: 'Serum Developer Resources',
-    link: helpUrls.developerResources,
-  },
+  { description: 'Cedros.io', link: helpUrls.Cedros },
+  { description: 'Twitter', link: helpUrls.twitter },
   { description: 'Discord', link: helpUrls.discord },
-  { description: 'Telegram', link: helpUrls.telegram },
-  { description: 'GitHub', link: helpUrls.github },
-  { description: 'Project Serum', link: helpUrls.projectSerum },
+  { description: 'FTX', link: helpUrls.FTX },
   { description: 'Solana Network', link: helpUrls.solanaBeach },
 ];
 

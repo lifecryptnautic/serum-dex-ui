@@ -18,19 +18,19 @@ export default function Index() {
   return (
     <FloatingElement style={{ flex: 1, paddingTop: 20 }}>
       <Typography>
-        <Paragraph style={{ color: 'rgba(255,255,255,0.5)' }}>
+        <Paragraph style={{ color: 'rgba(255,255,255, 1)' }}>
           {language === 'en'
             ? 'Make sure to go to Balances and click Settle to send out your funds.'
             : 'Asegúrese de ir a Saldos y hacer clic en Liquidar para enviar sus fondos.'}
         </Paragraph>
-        <Paragraph style={{ color: 'rgba(255,255,255,0.5)' }}>
+        <Paragraph style={{ color: 'rgba(204, 167, 0, 1)' }}>
           {language === 'en'
             ? 'To fund your wallet, '
             : 'Para financiar su billetera, vaya a '}
-          <a href="https://www.sollet.io">sollet.io</a>.
+          <a href="https://ftx.com/#a=CedrosDex"> FTX Exchange</a>.
           {language === 'en'
-            ? ' You can get SOL from FTX, Binance, BitMax, and others. You can get other tokens from FTX.'
-            : ' Puede obtener SOL de FTX, Binance, BitMax, entre otros. También puede obtener otros tokens de FTX.'}
+            ? ' where you can get SOL and other SPL tokens.'
+            : ' Puedes obtener SOL y otros tokens de Solana.'}
         </Paragraph>
       </Typography>
       <Tabs defaultActiveKey="orders">

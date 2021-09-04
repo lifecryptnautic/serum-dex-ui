@@ -4,42 +4,80 @@ import styled from 'styled-components';
 import Orderbook from '../components/Orderbook';
 import UserInfoTable from '../components/UserInfoTable';
 import StandaloneBalancesDisplay from '../components/StandaloneBalancesDisplay';
+import Oneinch from '../assets/logos/1inch.svg';
 import Aave from '../assets/logos/Aave.svg';
 import Akro from '../assets/logos/Akro.svg';
 import Aleph from '../assets/logos/Aleph.png';
+import Atlas from '../assets/logos/Atlas.svg';
+import Bop from '../assets/logos/Bop.svg';
 import Btc from '../assets/logos/Btc.svg';
+import Ccai from '../assets/logos/Ccai.svg';
 import Cel from '../assets/logos/Cel.svg';
+import Comp from '../assets/logos/Comp.svg';
 import Cope from '../assets/logos/Cope.png';
 import Cream from '../assets/logos/Cream.svg';
+import Crp from '../assets/logos/Crp.svg';
+import Dxl from '../assets/logos/Dxl.svg';
 import Eth from '../assets/logos/Eth.svg';
 import Fida from '../assets/logos/Fida.svg';
 import Front from '../assets/logos/Front.png';
+import Ftr from '../assets/logos/Ftr.svg';
 import Ftt from '../assets/logos/Ftt.svg';
+import Grt from '../assets/logos/Grt.svg';
 import Hget from '../assets/logos/Hget.png';
 import Hnt from '../assets/logos/Hnt.png';
+import Holy from '../assets/logos/Holy.svg';
 import Hxro from '../assets/logos/Hxro.png';
 import Keep from '../assets/logos/Keep.svg';
 import Kin from '../assets/logos/Kin.svg';
+import Lien from '../assets/logos/Lien.svg';
+import Like from '../assets/logos/Like.svg';
 import Link from '../assets/logos/Link.svg';
+import Liq from '../assets/logos/Liq.svg';
+import Lqid from '../assets/logos/Lqid.svg';
 import Lua from '../assets/logos/Lua.webp';
 import Maps from '../assets/logos/Maps.webp';
 import Math from '../assets/logos/Math.webp';
+import Media from '../assets/logos/Media.svg';
 import Mer from '../assets/logos/Mer.png';
-import Msrm from '../assets/logos/Msrm.svg';
+import Mngo from '../assets/logos/Mngo.svg';
+import Mola from '../assets/logos/Mola.svg';
+import Orca from '../assets/logos/Orca.svg';
+import Oxs from '../assets/logos/Oxs.svg';
 import Oxy from '../assets/logos/Oxy.png';
+import Paxg from '../assets/logos/Paxg.svg';
+import Perp from '../assets/logos/Perp.svg';
+import Polis from '../assets/logos/Polis.svg';
+import Port from '../assets/logos/Port.svg';
 import Ray from '../assets/logos/Ray.svg';
+import Renbch from '../assets/logos/Renbch.svg';
+import Renbtc from '../assets/logos/Renbtc.svg';
+import Rendgb from '../assets/logos/Rendgb.svg';
+import Rendoge from '../assets/logos/Rendoge.svg';
+import Renfil from '../assets/logos/Renfil.svg';
+import Renluna from '../assets/logos/Renluna.svg';
+import Renzec from '../assets/logos/Renzec.svg';
+import Rope from '../assets/logos/Rope.svg';
 import Rsr from '../assets/logos/Rsr.svg';
+import Sail from '../assets/logos/Sail.svg';
+import Samo from '../assets/logos/Samo.svg';
 import Sbr from '../assets/logos/Sbr.webp';
+import Seco from '../assets/logos/Seco.svg';
+import Slim from '../assets/logos/Slim.svg';
 import Slrs from '../assets/logos/Slrs.svg';
 import Sny from '../assets/logos/Sny.png';
 import Sol from '../assets/logos/Sol.svg';
+import Soldoge from '../assets/logos/Soldoge.svg';
 import Srm from '../assets/logos/Srm.svg';
+import Step from '../assets/logos/Step.svg';
 import Sushi from '../assets/logos/Sushi.svg';
 import Sxp from '../assets/logos/Sxp.svg';
 import Tomo from '../assets/logos/Tomo.svg';
+import Tulip from '../assets/logos/Tulip.svg';
 import Ubxt from '../assets/logos/Ubxt.png';
 import Uni from '../assets/logos/Uni.svg';
 import Usdt from '../assets/logos/Usdt.svg';
+import Woo from '../assets/logos/Woo.svg';
 import Yfi from '../assets/logos/Yfi.svg';
 
 import {
@@ -263,74 +301,86 @@ function MarketSelector({
   const { market, setMarketAddress } = useMarket();
 
   const Logos = {
-    'AAVE/USDT' : Aave,
-    'AKRO/USDT' : Akro,
+    '1INCH/USDC' : Oneinch,
+    'AAVE/USDC' : Aave,
     'AKRO/USDC' : Akro,
-    'ALEPH/USDT' : Aleph,
     'ALEPH/USDC' : Aleph,
+    'ATLAS/USDC' : Atlas,
+    'BOP/USDC' : Bop,
     'BTC/USDT' : Btc,
     'BTC/USDC' : Btc,
-    'CEL/USDT' : Cel,
+    'CCAI/USDC' : Ccai,
+    'CEL/USDC' : Cel,
+    'COMP/USDC' : Comp,
     'COPE/USDC' : Cope,
-    'CREAM/USDT' : Cream,
     'CREAM/USDC' : Cream,
+    'CRP/USDC' : Crp,
+    'DXL/USDC' : Dxl,
     'ETH/USDT' : Eth,
     'ETH/USDC' : Eth,
-    'ETHV/USDT' : Eth,
-    'FIDA/USDT' : Fida,
     'FIDA/USDC' : Fida,
-    'FRONT/USDT' : Front,
     'FRONT/USDC' : Front,
-    'FTT/USDT' : Ftt,
+    'FTR/USDC' : Ftr,
     'FTT/USDC' : Ftt,
-    'HGET/USDT' : Hget,
+    'GRT/USDC' : Grt,
     'HGET/USDC' : Hget,
-    'HNT/USDT' : Hnt,
     'HNT/USDC' : Hnt,
-    'HXRO/USDT' : Hxro,
+    'HOLY/USDC' : Holy,
     'HXRO/USDC' : Hxro,
-    'KEEP/USDT' : Keep,
     'KEEP/USDC' : Keep,
-    'KIN/USDT' : Kin,
     'KIN/USDC' : Kin,
-    'LINK/USDT' : Link,
+    'LIEN/USDC' : Lien,
+    'LIKE/USDC' : Like,
     'LINK/USDC' : Link,
-    'LUA/USDT' : Lua,
+    'LIQ/USDC' : Liq,
+    'LQID/USDC' : Lqid,
     'LUA/USDC' : Lua,
-    'MAPS/USDT' : Maps,
     'MAPS/USDC' : Maps,
-    'MATH/USDT' : Math,
+    'MAPSPOOL/USDC' : Maps,
     'MATH/USDC' : Math,
-    'MER/USDT' : Mer,
+    'MEDIA/USDC' : Media,
     'MER/USDC' : Mer,
-    'MSRM/USDT' : Msrm,
-    'MSRM/USDC' : Msrm,
-    'OXY/USDT' : Oxy,
-    'OXY/WUSDT' : Oxy,
+    'MERPOOL/USDC' : Mer,
+    'MNGO/USDC' : Mngo,
+    'MOLA/USDC' : Mola,
+    'ORCA/USDC' : Orca,
+    'OXS/USDC' : Oxs,
     'OXY/USDC' : Oxy,
-    'RAY/USDT' : Ray,
-    'RSR/USDT' : Rsr,
+    'OXYPOOL/USDC' : Oxy,
+    'PAXG/USDC' : Paxg,
+    'PERP/USDC' : Perp,
+    'POLIS/USDC' : Polis,
+    'PORT/USDC' : Port,
+    'RAY/USDC' : Ray,
+    'RAYPOOL/USDC' : Ray,
+    'ROPE/USDC' : Rope,
+    'RSR/USDC' : Rsr,
+    'SAIL/USDC' : Sail,
+    'SAMO/USDC' : Samo,
     'SBR/USDC' : Sbr,
+    'SECO/USDC' : Seco,
+    'SLIM/USDC' : Slim,
     'SLRS/USDC' : Slrs,
     'SNY/USDC' : Sny,
-    'SOL/USDT' : Sol,
+    'SNYPOOL/USDC' : Sny,
     'SOL/USDC' : Sol,
-    'SRM/USDT' : Srm,
+    'SOLDOGE/USDC' : Soldoge,
     'SRM/USDC' : Srm,
-    'SRM/SOL' : Srm,
-    'SUSHI/USDT' : Sushi,
+    'STEP/USDC' : Step,
     'SUSHI/USDC' : Sushi,
-    'SXP/USDT' : Sxp,
     'SXP/USDC' : Sxp,
-    'TOMO/USDT' : Tomo,
     'TOMO/USDC' : Tomo,
-    'UBXT/USDT' : Ubxt,
+    'TULIP/USDC' : Tulip,
     'UBXT/USDC' : Ubxt,
-    'UNI/USDT' : Uni,
     'UNI/USDC' : Uni,
     'USDT/USDC' : Usdt,
-    'YFI/USDT' : Yfi,
+    'WOO/USDC' : Woo,
     'YFI/USDC' : Yfi,
+    'renBCH/USDC' : Renbch,
+    'renBTC/USDC' : Renbtc,
+    'renDOGE/USDC' : Rendoge,
+    'renLUNA/USDC' : Renluna,
+    'renZEC/USDC' : Renzec,
   }
 
 

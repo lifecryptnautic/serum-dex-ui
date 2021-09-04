@@ -20,7 +20,7 @@ import AppSearch from './AppSearch';
 import { getTradePageUrl } from '../utils/markets';
 
 const Wrapper = styled.div`
-  background-color: #0d1017;
+  background-color: #001666;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -30,24 +30,21 @@ const Wrapper = styled.div`
 const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  color: #2abdd2;
+  color: #FFEA00;
   font-weight: bold;
   cursor: pointer;
   img {
-    height: 30px;
+    height: 40px;
     margin-right: 8px;
   }
 `;
 
 const EXTERNAL_LINKS = {
-  '/learn': 'https://docs.projectserum.com/trade-on-serum-dex/trade-on-serum-dex-1',
   '/add-market': 'https://serum-academy.com/en/add-market/',
   '/wallet-support': 'https://serum-academy.com/en/wallet-support',
-  '/dex-list': 'https://serum-academy.com/en/dex-list/',
-  '/developer-resources': 'https://serum-academy.com/en/developer-resources/',
-  '/explorer': 'https://solscan.io',
+  '/explorer': 'https://explorer.solana.com',
   '/srm-faq': 'https://projectserum.com/srm-faq',
-  '/swap': 'https://swap.projectserum.com',
+  '/cedros.io': 'https://cedros.io',
 };
 
 export default function TopBar() {
@@ -149,7 +146,7 @@ export default function TopBar() {
       <Wrapper>
         <LogoWrapper onClick={() => history.push(tradePageUrl)}>
           <img src={logo} alt="" />
-          {'SERUM'}
+          {'CEDROS'}
         </LogoWrapper>
         <Menu
           mode="horizontal"
@@ -166,17 +163,6 @@ export default function TopBar() {
           <Menu.Item key={tradePageUrl} style={{ margin: '0 10px 0 20px' }}>
             {language === 'en' ? 'TRADE' : 'OPERAR'}
           </Menu.Item>
-          {!searchFocussed && (
-            <Menu.Item key="/swap" style={{ margin: '0 10px' }}>
-              <a
-                href={EXTERNAL_LINKS['/swap']}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                SWAP
-              </a>
-            </Menu.Item>
-          )}
           {connected && (!searchFocussed || location.pathname === '/balances') && (
             <Menu.Item key="/balances" style={{ margin: '0 10px' }}>
               {language === 'en' ? 'BALANCES' : 'SALDOS'}
@@ -187,16 +173,6 @@ export default function TopBar() {
               {language === 'en' ? 'ORDERS' : 'ÓRDENES'}
             </Menu.Item>
           )}
-          {connected && (!searchFocussed || location.pathname === '/convert') && (
-            <Menu.Item key="/convert" style={{ margin: '0 10px' }}>
-              {language === 'en' ? 'CONVERT' : 'CONVERSOR'}
-            </Menu.Item>
-          )}
-          {(!searchFocussed || location.pathname === '/list-new-market') && (
-            <Menu.Item key="/list-new-market" style={{ margin: '0 10px' }}>
-              {language === 'en' ? 'ADD MARKET' : 'AGREGAR MERCADO'}
-            </Menu.Item>
-          )}
           {!searchFocussed && (
             <Menu.SubMenu
               title={language === 'en' ? 'LEARN' : 'APRENDIZAJE'}
@@ -205,15 +181,6 @@ export default function TopBar() {
               }
               style={{ margin: '0 0px 0 10px' }}
             >
-              <Menu.Item key="/add-market">
-                <a
-                  href={EXTERNAL_LINKS['/add-market']}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {language === 'en' ? 'Adding a market' : 'Agregar un mercado'}
-                </a>
-              </Menu.Item>
               <Menu.Item key="/wallet-support">
                 <a
                   href={EXTERNAL_LINKS['/wallet-support']}
@@ -221,24 +188,6 @@ export default function TopBar() {
                   rel="noopener noreferrer"
                 >
                   {language === 'en' ? 'Supported wallets' : 'Billeteras soportadas'}
-                </a>
-              </Menu.Item>
-              <Menu.Item key="/dex-list">
-                <a
-                  href={EXTERNAL_LINKS['/dex-list']}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {language === 'en' ? 'DEX list' : 'Lista de DEX'}
-                </a>
-              </Menu.Item>
-              <Menu.Item key="/developer-resources">
-                <a
-                  href={EXTERNAL_LINKS['/developer-resources']}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {language === 'en' ? 'Developer resources' : 'Recursos para desarrolladores'}
                 </a>
               </Menu.Item>
               <Menu.Item key="/explorer">
@@ -284,7 +233,7 @@ export default function TopBar() {
           >
             <Col>
               <PlusCircleOutlined
-                style={{ color: '#2abdd2' }}
+                style={{ color: '#F504B4' }}
                 onClick={() => setAddEndpointVisible(true)}
               />
             </Col>
@@ -295,7 +244,7 @@ export default function TopBar() {
                 title="URL"
                 trigger="hover"
               >
-                <InfoCircleOutlined style={{ color: '#2abdd2' }} />
+                <InfoCircleOutlined style={{ color: '#F504B4' }} />
               </Popover>
             </Col>
             <Col>
