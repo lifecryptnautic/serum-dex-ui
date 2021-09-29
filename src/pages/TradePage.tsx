@@ -6,9 +6,11 @@ import UserInfoTable from '../components/UserInfoTable';
 import StandaloneBalancesDisplay from '../components/StandaloneBalancesDisplay';
 import Oneinch from '../assets/logos/1inch.svg';
 import Aave from '../assets/logos/Aave.svg';
+import Abr from '../assets/logos/Abr.svg';
 import Akro from '../assets/logos/Akro.svg';
 import Aleph from '../assets/logos/Aleph.png';
 import Atlas from '../assets/logos/Atlas.svg';
+import Blt from '../assets/logos/Blt.jpg';
 import Bop from '../assets/logos/Bop.svg';
 import Btc from '../assets/logos/Btc.svg';
 import Ccai from '../assets/logos/Ccai.svg';
@@ -17,19 +19,26 @@ import Comp from '../assets/logos/Comp.svg';
 import Cope from '../assets/logos/Cope.png';
 import Cream from '../assets/logos/Cream.svg';
 import Crp from '../assets/logos/Crp.svg';
+import Cys from '../assets/logos/Cys.svg';
+import Date from '../assets/logos/Date.svg';
 import Dxl from '../assets/logos/Dxl.svg';
 import Eth from '../assets/logos/Eth.svg';
 import Fida from '../assets/logos/Fida.svg';
 import Front from '../assets/logos/Front.png';
 import Ftr from '../assets/logos/Ftr.svg';
 import Ftt from '../assets/logos/Ftt.svg';
+import Grape from '../assets/logos/Grape.png';
 import Grt from '../assets/logos/Grt.svg';
 import Hget from '../assets/logos/Hget.png';
 import Hnt from '../assets/logos/Hnt.png';
 import Holy from '../assets/logos/Holy.svg';
 import Hxro from '../assets/logos/Hxro.png';
+import Isola from '../assets/logos/Isola.png';
+import Ivn from '../assets/logos/Ivn.png';
 import Keep from '../assets/logos/Keep.svg';
 import Kin from '../assets/logos/Kin.svg';
+import Kuro from '../assets/logos/Kuro.png';
+import Larix from '../assets/logos/Larix.jpg';
 import Lien from '../assets/logos/Lien.svg';
 import Like from '../assets/logos/Like.svg';
 import Link from '../assets/logos/Link.svg';
@@ -49,6 +58,7 @@ import Paxg from '../assets/logos/Paxg.svg';
 import Perp from '../assets/logos/Perp.svg';
 import Polis from '../assets/logos/Polis.svg';
 import Port from '../assets/logos/Port.svg';
+import Prt from '../assets/logos/Prt.svg';
 import Ray from '../assets/logos/Ray.svg';
 import Renbch from '../assets/logos/Renbch.svg';
 import Renbtc from '../assets/logos/Renbtc.svg';
@@ -68,10 +78,14 @@ import Slrs from '../assets/logos/Slrs.svg';
 import Sny from '../assets/logos/Sny.png';
 import Sol from '../assets/logos/Sol.svg';
 import Soldoge from '../assets/logos/Soldoge.svg';
+import Solpad from '../assets/logos/Solpad.png';
 import Srm from '../assets/logos/Srm.svg';
 import Step from '../assets/logos/Step.svg';
+import Str from '../assets/logos/Str.png';
+import Stsol from '../assets/logos/Stsol.png';
 import Sushi from '../assets/logos/Sushi.svg';
 import Sxp from '../assets/logos/Sxp.svg';
+import Syp from '../assets/logos/Syp.jpg';
 import Tomo from '../assets/logos/Tomo.svg';
 import Tulip from '../assets/logos/Tulip.svg';
 import Ubxt from '../assets/logos/Ubxt.png';
@@ -303,9 +317,11 @@ function MarketSelector({
   const Logos = {
     '1INCH/USDC' : Oneinch,
     'AAVE/USDC' : Aave,
+    'ABR/USDC' : Abr,
     'AKRO/USDC' : Akro,
     'ALEPH/USDC' : Aleph,
     'ATLAS/USDC' : Atlas,
+    'BLT/USDC' : Blt,
     'BOP/USDC' : Bop,
     'BTC/USDT' : Btc,
     'BTC/USDC' : Btc,
@@ -315,6 +331,8 @@ function MarketSelector({
     'COPE/USDC' : Cope,
     'CREAM/USDC' : Cream,
     'CRP/USDC' : Crp,
+    'CYS/USDC' : Cys,
+    'DATE/USDC' : Date,
     'DXL/USDC' : Dxl,
     'ETH/USDT' : Eth,
     'ETH/USDC' : Eth,
@@ -322,13 +340,18 @@ function MarketSelector({
     'FRONT/USDC' : Front,
     'FTR/USDC' : Ftr,
     'FTT/USDC' : Ftt,
+    'GRAPE/USDC' : Grape,
     'GRT/USDC' : Grt,
     'HGET/USDC' : Hget,
     'HNT/USDC' : Hnt,
     'HOLY/USDC' : Holy,
     'HXRO/USDC' : Hxro,
+    'ISOLA/USDT' : Isola,
+    'IVN/USDC' : Ivn,
     'KEEP/USDC' : Keep,
     'KIN/USDC' : Kin,
+    'KURO/USDC' : Kuro,
+    'LARIX/USDC' : Larix,
     'LIEN/USDC' : Lien,
     'LIKE/USDC' : Like,
     'LINK/USDC' : Link,
@@ -351,6 +374,7 @@ function MarketSelector({
     'PERP/USDC' : Perp,
     'POLIS/USDC' : Polis,
     'PORT/USDC' : Port,
+    'PRT/USDC' : Prt,
     'RAY/USDC' : Ray,
     'RAYPOOL/USDC' : Ray,
     'ROPE/USDC' : Rope,
@@ -365,10 +389,14 @@ function MarketSelector({
     'SNYPOOL/USDC' : Sny,
     'SOL/USDC' : Sol,
     'SOLDOGE/USDC' : Soldoge,
+    'SOLPAD/USDC' : Solpad,
     'SRM/USDC' : Srm,
     'STEP/USDC' : Step,
+    'STR/USDC' : Str,
+    'stSOL/USDC' : Stsol,
     'SUSHI/USDC' : Sushi,
     'SXP/USDC' : Sxp,
+    'SYP/USDC' : Syp,
     'TOMO/USDC' : Tomo,
     'TULIP/USDC' : Tulip,
     'UBXT/USDC' : Ubxt,

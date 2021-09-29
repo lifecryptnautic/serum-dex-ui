@@ -26,9 +26,11 @@ import { AUTO_SETTLE_DISABLED_OVERRIDE } from '../utils/preferences';
 import { useReferrer } from '../utils/referrer';
 import Oneinch from '../assets/logos/1inch.svg';
 import Aave from '../assets/logos/Aave.svg';
+import Abr from '../assets/logos/Abr.svg';
 import Akro from '../assets/logos/Akro.svg';
 import Aleph from '../assets/logos/Aleph.png';
 import Atlas from '../assets/logos/Atlas.svg';
+import Blt from '../assets/logos/Blt.jpg';
 import Bop from '../assets/logos/Bop.svg';
 import Btc from '../assets/logos/Btc.svg';
 import Ccai from '../assets/logos/Ccai.svg';
@@ -37,19 +39,26 @@ import Comp from '../assets/logos/Comp.svg';
 import Cope from '../assets/logos/Cope.png';
 import Cream from '../assets/logos/Cream.svg';
 import Crp from '../assets/logos/Crp.svg';
+import Cys from '../assets/logos/Cys.svg';
+import Dateicon from '../assets/logos/Date.svg';
 import Dxl from '../assets/logos/Dxl.svg';
 import Eth from '../assets/logos/Eth.svg';
 import Fida from '../assets/logos/Fida.svg';
 import Front from '../assets/logos/Front.png';
 import Ftr from '../assets/logos/Ftr.svg';
 import Ftt from '../assets/logos/Ftt.svg';
+import Grape from '../assets/logos/Grape.png';
 import Grt from '../assets/logos/Grt.svg';
 import Hget from '../assets/logos/Hget.png';
 import Hnt from '../assets/logos/Hnt.png';
 import Holy from '../assets/logos/Holy.svg';
 import Hxro from '../assets/logos/Hxro.png';
+import Isola from '../assets/logos/Isola.png';
+import Ivn from '../assets/logos/Ivn.png';
 import Keep from '../assets/logos/Keep.svg';
 import Kin from '../assets/logos/Kin.svg';
+import Kuro from '../assets/logos/Kuro.png';
+import Larix from '../assets/logos/Larix.jpg';
 import Lien from '../assets/logos/Lien.svg';
 import Like from '../assets/logos/Like.svg';
 import Linkicon from '../assets/logos/Link.svg';
@@ -69,6 +78,7 @@ import Paxg from '../assets/logos/Paxg.svg';
 import Perp from '../assets/logos/Perp.svg';
 import Polis from '../assets/logos/Polis.svg';
 import Port from '../assets/logos/Port.svg';
+import Prt from '../assets/logos/Prt.svg';
 import Ray from '../assets/logos/Ray.svg';
 import Renbch from '../assets/logos/Renbch.svg';
 import Renbtc from '../assets/logos/Renbtc.svg';
@@ -88,10 +98,14 @@ import Slrs from '../assets/logos/Slrs.svg';
 import Sny from '../assets/logos/Sny.png';
 import Sol from '../assets/logos/Sol.svg';
 import Soldoge from '../assets/logos/Soldoge.svg';
+import Solpad from '../assets/logos/Solpad.png';
 import Srm from '../assets/logos/Srm.svg';
 import Step from '../assets/logos/Step.svg';
+import Str from '../assets/logos/Str.png';
+import Stsol from '../assets/logos/Stsol.png';
 import Sushi from '../assets/logos/Sushi.svg';
 import Sxp from '../assets/logos/Sxp.svg';
+import Syp from '../assets/logos/Syp.jpg';
 import Tomo from '../assets/logos/Tomo.svg';
 import Tulip from '../assets/logos/Tulip.svg';
 import Ubxt from '../assets/logos/Ubxt.png';
@@ -265,9 +279,11 @@ export default function StandaloneBalancesDisplay() {
   const Logos = {
     '1INCH' : Oneinch,
     'AAVE' : Aave,
+    'ABR' : Abr,
     'AKRO' : Akro,
     'ALEPH' : Aleph,
     'ATLAS' : Atlas,
+    'BLT' : Blt,
     'BOP' : Bop,
     'BTC' : Btc,
     'CCAI' : Ccai,
@@ -276,19 +292,26 @@ export default function StandaloneBalancesDisplay() {
     'COPE' : Cope,
     'CREAM' : Cream,
     'CRP' : Crp,
+    'CYS' : Cys,
+    'DATE' : Dateicon,
     'DXL' : Dxl,
     'ETH' : Eth,
     'FIDA' : Fida,
     'FRONT' : Front,
     'FTR' : Ftr,
     'FTT' : Ftt,
+    'GRAPE' : Grape,
     'GRT' : Grt,
     'HGET' : Hget,
     'HNT' : Hnt,
     'HOLY' : Holy,
     'HXRO' : Hxro,
+    'INTERSOLA' : Isola,
+    'IVN' : Ivn,
     'KEEP' : Keep,
     'KIN' : Kin,
+    'KURO' : Kuro,
+    'LARIX' : Larix,
     'LIEN' : Lien,
     'LIKE' : Like,
     'LINK' : Linkicon,
@@ -311,6 +334,7 @@ export default function StandaloneBalancesDisplay() {
     'PERP' : Perp,
     'POLIS' : Polis,
     'PORT' : Port,
+    'PRT' : Prt,
     'RAY' : Ray,
     'RAYPOOL' : Ray,
     'ROPE' : Rope,
@@ -325,10 +349,14 @@ export default function StandaloneBalancesDisplay() {
     'SNYPOOL' : Sny,
     'SOL' : Sol,
     'SOLDOGE' : Soldoge,
+    'SOLPAD' : Solpad,
     'SRM' : Srm,
     'STEP' : Step,
+    'STR' : Str,
+    'stSOL' : Stsol,
     'SUSHI' : Sushi,
     'SXP' : Sxp,
+    'SYP' : Syp,
     'TOMO' : Tomo,
     'TULIP' : Tulip,
     'UBXT' : Ubxt,

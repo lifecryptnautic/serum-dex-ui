@@ -1,7 +1,7 @@
 import { BonfidaTrade } from './types';
 
 export default class BonfidaApi {
-  static URL: string = 'https://cedros-history.herokuapp.com/';
+  static URL: string = 'https://cedroshistory.herokuapp.com/';
 
   static async get(path: string) {
     try {
@@ -23,4 +23,4 @@ export default class BonfidaApi {
   }
 }
 
-export const BONFIDA_DATA_FEED = 'https://cedros-history.herokuapp.com/tv';
+export const BONFIDA_DATA_FEED = 'https://cedroshistory.herokuapp.com/tv';
